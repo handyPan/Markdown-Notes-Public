@@ -1,3 +1,6 @@
+# Note
+This site can be accessed from [Github](https://handypan.github.io/Markdown-Notes-Public/) and [Render](https://markdown-notes-hpkg.onrender.com/)
+
 # Topics
 
 <div style="
@@ -6,7 +9,7 @@
   gap: 10px;                     /* Optional: space between buttons */
 ">
 
-<a href="https://markdown-notes-hpkg.onrender.com/#/AI/" style="
+<a href="/#/topics/AI/" style="
     display: inline-flex;       /* Changed to flex for better centering */
     align-items: center;       /* Vertical centering */
     justify-content: center;   /* Horizontal centering */
@@ -22,7 +25,7 @@
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 ">AI</a>
 
-<a href="https://markdown-notes-hpkg.onrender.com/#/Algorithm/" style="
+<a href="/#/topics/Algorithm/" style="
     display: inline-flex;       /* Changed to flex for better centering */
     align-items: center;       /* Vertical centering */
     justify-content: center;   /* Horizontal centering */
@@ -38,7 +41,7 @@
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 ">Algorithm</a>
 
-<a href="https://markdown-notes-hpkg.onrender.com/#/Backend/" style="
+<a href="/#/topics/Backend/" style="
     display: inline-flex;       /* Changed to flex for better centering */
     align-items: center;       /* Vertical centering */
     justify-content: center;   /* Horizontal centering */
@@ -54,7 +57,7 @@
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 ">Backend</a>
 
-<a href="https://markdown-notes-hpkg.onrender.com/#/CSS/" style="
+<a href="/#/topics/CSS/" style="
     display: inline-flex;       /* Changed to flex for better centering */
     align-items: center;       /* Vertical centering */
     justify-content: center;   /* Horizontal centering */
@@ -70,7 +73,7 @@
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 ">CSS</a>
 
-<a href="https://markdown-notes-hpkg.onrender.com/#/Database/" style="
+<a href="/#/topics/Database/" style="
     display: inline-flex;       /* Changed to flex for better centering */
     align-items: center;       /* Vertical centering */
     justify-content: center;   /* Horizontal centering */
@@ -86,7 +89,7 @@
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 ">Database</a>
 
-<a href="https://markdown-notes-hpkg.onrender.com/#/Git/" style="
+<a href="/#/topics/Git/" style="
     display: inline-flex;       /* Changed to flex for better centering */
     align-items: center;       /* Vertical centering */
     justify-content: center;   /* Horizontal centering */
@@ -102,7 +105,7 @@
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 ">Git</a>
 
-<a href="https://markdown-notes-hpkg.onrender.com/#/Java/" style="
+<a href="/#/topics/Java/" style="
     display: inline-flex;       /* Changed to flex for better centering */
     align-items: center;       /* Vertical centering */
     justify-content: center;   /* Horizontal centering */
@@ -118,7 +121,7 @@
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 ">Java</a>
 
-<a href="https://markdown-notes-hpkg.onrender.com/#/JavaScript/" style="
+<a href="/#/topics/JavaScript/" style="
     display: inline-flex;       /* Changed to flex for better centering */
     align-items: center;       /* Vertical centering */
     justify-content: center;   /* Horizontal centering */
@@ -134,7 +137,7 @@
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 ">JavaScript</a>
 
-<a href="https://markdown-notes-hpkg.onrender.com/#/Jupyter Notebook/" style="
+<a href="/#/topics/Jupyter Notebook/" style="
     display: inline-flex;       /* Changed to flex for better centering */
     align-items: center;       /* Vertical centering */
     justify-content: center;   /* Horizontal centering */
@@ -150,7 +153,7 @@
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 ">Jupyter Notebook</a>
 
-<a href="https://markdown-notes-hpkg.onrender.com/#/Material UI/" style="
+<a href="/#/topics/Material UI/" style="
     display: inline-flex;       /* Changed to flex for better centering */
     align-items: center;       /* Vertical centering */
     justify-content: center;   /* Horizontal centering */
@@ -166,7 +169,7 @@
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 ">Material UI</a>
 
-<a href="https://markdown-notes-hpkg.onrender.com/#/Math/" style="
+<a href="/#/topics/Math/" style="
     display: inline-flex;       /* Changed to flex for better centering */
     align-items: center;       /* Vertical centering */
     justify-content: center;   /* Horizontal centering */
@@ -182,7 +185,7 @@
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 ">Math</a>
 
-<a href="https://markdown-notes-hpkg.onrender.com/#/MongoDB/" style="
+<a href="/#/topics/MongoDB/" style="
     display: inline-flex;       /* Changed to flex for better centering */
     align-items: center;       /* Vertical centering */
     justify-content: center;   /* Horizontal centering */
@@ -198,7 +201,7 @@
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 ">MongoDB</a>
 
-<a href="https://markdown-notes-hpkg.onrender.com/#/Node/" style="
+<a href="/#/topics/Node/" style="
     display: inline-flex;       /* Changed to flex for better centering */
     align-items: center;       /* Vertical centering */
     justify-content: center;   /* Horizontal centering */
@@ -214,7 +217,7 @@
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 ">Node</a>
 
-<a href="https://markdown-notes-hpkg.onrender.com/#/Physics/" style="
+<a href="/#/topics/Physics/" style="
     display: inline-flex;       /* Changed to flex for better centering */
     align-items: center;       /* Vertical centering */
     justify-content: center;   /* Horizontal centering */
@@ -230,7 +233,7 @@
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 ">Physics</a>
 
-<a href="https://markdown-notes-hpkg.onrender.com/#/Pytest/" style="
+<a href="/#/topics/Pytest/" style="
     display: inline-flex;       /* Changed to flex for better centering */
     align-items: center;       /* Vertical centering */
     justify-content: center;   /* Horizontal centering */
@@ -246,7 +249,7 @@
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 ">Pytest</a>
 
-<a href="https://markdown-notes-hpkg.onrender.com/#/React/" style="
+<a href="/#/topics/React/" style="
     display: inline-flex;       /* Changed to flex for better centering */
     align-items: center;       /* Vertical centering */
     justify-content: center;   /* Horizontal centering */
@@ -262,7 +265,7 @@
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 ">React</a>
 
-<a href="https://markdown-notes-hpkg.onrender.com/#/Rich Text Editor/" style="
+<a href="/#/topics/Rich Text Editor/" style="
     display: inline-flex;       /* Changed to flex for better centering */
     align-items: center;       /* Vertical centering */
     justify-content: center;   /* Horizontal centering */
@@ -278,7 +281,7 @@
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 ">Rich Text Editor</a>
 
-<a href="https://markdown-notes-hpkg.onrender.com/#/Selenium/" style="
+<a href="/#/topics/Selenium/" style="
     display: inline-flex;       /* Changed to flex for better centering */
     align-items: center;       /* Vertical centering */
     justify-content: center;   /* Horizontal centering */
@@ -294,7 +297,7 @@
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 ">Selenium</a>
 
-<a href="https://markdown-notes-hpkg.onrender.com/#/Software/" style="
+<a href="/#/topics/Software/" style="
     display: inline-flex;       /* Changed to flex for better centering */
     align-items: center;       /* Vertical centering */
     justify-content: center;   /* Horizontal centering */
@@ -310,7 +313,7 @@
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 ">Software</a>
 
-<a href="https://markdown-notes-hpkg.onrender.com/#/Tailwind/" style="
+<a href="/#/topics/Tailwind/" style="
     display: inline-flex;       /* Changed to flex for better centering */
     align-items: center;       /* Vertical centering */
     justify-content: center;   /* Horizontal centering */
@@ -326,7 +329,7 @@
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 ">Tailwind</a>
 
-<a href="https://markdown-notes-hpkg.onrender.com/#/Vite/" style="
+<a href="/#/topics/Vite/" style="
     display: inline-flex;       /* Changed to flex for better centering */
     align-items: center;       /* Vertical centering */
     justify-content: center;   /* Horizontal centering */
