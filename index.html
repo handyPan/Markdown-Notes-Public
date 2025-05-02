@@ -25,12 +25,14 @@
 
   <!-- Theme Switcher Buttons -->
   <div style="position: fixed; top: 0.3rem; right: 5rem; z-index: 999;">
-    <button onclick="setTheme('theme_simple')">🌞 Theme Simple</button>
-    <button onclick="setTheme('theme_dark')">🌙 Theme Dark</button>
-    <button onclick="setTheme('vue')">💚 Vue</button>
-    <button onclick="setTheme('bubble')">🔵 Bubble</button>
-    <button onclick="setTheme('dark')">🖤 Dark</button>
-    <button onclick="setTheme('pure')">⚪ Pure</button>
+    <select id="theme-select">
+      <option value="theme_simple">🌞 Theme Simple</option>
+      <option value="theme_dark">🌙 Theme Dark</option>
+      <option value="vue">💚 Vue</option>
+      <option value="bubble">🔵 Bubble</option>
+      <option value="dark">🖤 Dark</option>
+      <option value="pure">⚪ Pure</option>
+    </select>
   </div>
 
   <script>
@@ -111,6 +113,7 @@
       }
     }
 
+    
     function setTheme(mode) {
       const themeMap = {
         theme_simple: `https://cdn.jsdelivr.net/npm/docsify-themeable@0/dist/css/theme-simple.css`,
@@ -120,12 +123,22 @@
         dark: 'https://cdn.jsdelivr.net/npm/docsify/lib/themes/dark.css',
         pure: 'https://cdn.jsdelivr.net/npm/docsify/lib/themes/pure.css'
       };
-      document.getElementById('theme-style').href = `${themeMap[mode]}`;
+      document.getElementById('theme-style').href = `${themeMap[mode]}` || themeMap.bubble;
+      document.getElementById('theme-select').value = mode;
+      localStorage.setItem('theme-style', mode);
     }
+
+    document.getElementById('theme-select').addEventListener('change', (e) => {
+      setTheme(e.target.value);
+    })
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const saved = localStorage.getItem('theme-style') || 'bubble';
+      setTheme(saved);
+    })
   </script>
  
  
-  
   <!-- Docsify v4 -->
   <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
   <script src="//unpkg.com/docsify/lib/plugins/external-script.min.js"></script>
