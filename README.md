@@ -3,7 +3,7 @@
 
 <!-- tabs:start -->
 
-#### **All (23)**
+#### **All (25)**
 
 <div style="
   display: flex;
@@ -175,6 +175,21 @@
     transition: all 0.3s;  
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 ">Jupyter Notebook</a>
+<a href="/#/topics/Markdown/" style="
+    display: inline-flex;       
+    align-items: center;       
+    justify-content: center;   
+    background: #eee;
+    font-size: 16px;
+    text-decoration: none;
+    text-align: center;
+    border-radius: 0;
+    width: 100px;
+    height: 100px;
+    padding: 0;                
+    transition: all 0.3s;  
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+">Markdown</a>
 <a href="/#/topics/Material UI/" style="
     display: inline-flex;       
     align-items: center;       
@@ -250,6 +265,21 @@
     transition: all 0.3s;  
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 ">Physics</a>
+<a href="/#/topics/Power System Analysis/" style="
+    display: inline-flex;       
+    align-items: center;       
+    justify-content: center;   
+    background: #eee;
+    font-size: 16px;
+    text-decoration: none;
+    text-align: center;
+    border-radius: 0;
+    width: 100px;
+    height: 100px;
+    padding: 0;                
+    transition: all 0.3s;  
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+">Power System Analysis</a>
 <a href="/#/topics/Pytest/" style="
     display: inline-flex;       
     align-items: center;       
@@ -630,13 +660,28 @@
 ">
 </div>
 
-#### **M (3)**
+#### **M (4)**
 
 <div style="
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
 ">
+<a href="/#/topics/Markdown/" style="
+    display: inline-flex;       
+    align-items: center;       
+    justify-content: center;   
+    background: #eee;
+    font-size: 16px;
+    text-decoration: none;
+    text-align: center;
+    border-radius: 0;
+    width: 100px;
+    height: 100px;
+    padding: 0;                
+    transition: all 0.3s;  
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+">Markdown</a>
 <a href="/#/topics/Material UI/" style="
     display: inline-flex;       
     align-items: center;       
@@ -717,7 +762,7 @@
 ">
 </div>
 
-#### **P (2)**
+#### **P (3)**
 
 <div style="
   display: flex;
@@ -739,6 +784,21 @@
     transition: all 0.3s;  
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 ">Physics</a>
+<a href="/#/topics/Power System Analysis/" style="
+    display: inline-flex;       
+    align-items: center;       
+    justify-content: center;   
+    background: #eee;
+    font-size: 16px;
+    text-decoration: none;
+    text-align: center;
+    border-radius: 0;
+    width: 100px;
+    height: 100px;
+    padding: 0;                
+    transition: all 0.3s;  
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+">Power System Analysis</a>
 <a href="/#/topics/Pytest/" style="
     display: inline-flex;       
     align-items: center;       
