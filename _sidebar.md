@@ -1,5 +1,5 @@
 <div style="display:inline; padding-left: 15px; font-size: 16px;">
-    <a href="/#/?id=main" style="text-decoration: none; &:hover { text-decoration: underline }">Home</a>
+    <a href="https://markdown-notes-hpkg.onrender.com/#/?id=main" style="text-decoration: none; &:hover { text-decoration: underline }">Home</a>
 </div>
 
 * [AI](/topics/AI/)
