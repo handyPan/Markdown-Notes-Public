@@ -1,5 +1,5 @@
 <div style="display:inline; padding-left: 15px; font-size: 16px;">
-    <a href="https://markdown-notes-hpkg.onrender.com/#/?id=main" style="text-decoration: none; &:hover { text-decoration: underline }">Home</a>
+    <a href="/#/?id=main" style="text-decoration: none; &:hover { text-decoration: underline }">Home</a>
 </div>
 
 * [AI](/topics/AI/)
@@ -16,7 +16,9 @@
 * [Markdown](/topics/Markdown/)
 * [Material UI](/topics/Material%20UI/)
 * [Math](/topics/Math/)
+* [Miscellaneous](/topics/Miscellaneous/)
 * [MongoDB](/topics/MongoDB/)
+* [Network Programming](/topics/Network%20Programming/)
 * [Node](/topics/Node/)
 * [Physics](/topics/Physics/)
 * [Power System Analysis](/topics/Power%20System%20Analysis/)
@@ -24,6 +26,8 @@
 * [React](/topics/React/)
 * [Rich Text Editor](/topics/Rich%20Text%20Editor/)
 * [Selenium](/topics/Selenium/)
+* [Shell Programming](/topics/Shell%20Programming/)
 * [Software](/topics/Software/)
 * [Tailwind](/topics/Tailwind/)
 * [Vite](/topics/Vite/)
+* [WSL](/topics/WSL/)

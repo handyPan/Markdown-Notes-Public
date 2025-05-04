@@ -7,23 +7,61 @@
   <meta name="description" content="Description">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
   <link id="theme-style" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
-  <!-- Docsify Themeable (default to light theme) -->
-
-  <!-- <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.css"> -->
+  
+  <!-- highlight.js Dark Theme -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/base16/material-darker.min.css">
+  
   <style>
     .docsify-pagination-container:not(:has(a)) {
       display: none;
     }
+    
+    /* Enhanced Dark Code Blocks */
+    .markdown-section pre {
+      background: #1a1a1a !important;
+      border-radius: 8px;
+      padding: 0;
+    }
+    
+    .markdown-section pre code {
+      background: transparent !important;
+      padding: 1.2em !important;
+      display: block;
+      overflow-x: auto;
+      line-height: 1.5;
+      color: #e0e0e0;
+    }
+    
+    /* Language label styling */
+    .markdown-section pre::before {
+      content: attr(data-lang);
+      display: block;
+      background: #2d2d2d;
+      color: #999;
+      padding: 4px 12px;
+      font-size: 0.8em;
+      border-radius: 8px 8px 0 0;
+      text-transform: uppercase;
+      margin-bottom: -1em;
+      position: relative;
+      z-index: 1;
+    }
+    
+    /* Better scrollbar for code blocks */
+    .markdown-section pre::-webkit-scrollbar {
+      height: 8px;
+    }
+    
+    .markdown-section pre::-webkit-scrollbar-thumb {
+      background: #555;
+      border-radius: 4px;
+    }
   </style>
 </head>
 <body>
-  <!-- <nav>
-    <a href="#/">EN</a>
-    <a href="#/zh-cn/">中文</a>
-  </nav> -->
   <div data-app id="main">Please wait...</div>
 
-  <!-- Theme Switcher Buttons -->
+  <!-- Theme Switcher -->
   <div style="position: fixed; top: 0.3rem; right: 5rem; z-index: 999;">
     <select id="theme-select">
       <option value="theme_simple">🌞 Theme Simple</option>
@@ -42,33 +80,72 @@
       el: '#main',
       loadSidebar: true,
       subMaxLevel: 3,
-      loadNavbar: true,
+      loadNavbar: false,
       coverpage: true,
-      // count configuration
-      count:{
-        countable:true,
-        fontsize:'0.9em',
-        color:'rgb(90,90,90)',
-        language:'chinese'
+      
+      // highlight.js configuration
+      highlight: {
+        theme: 'base16/material-darker',
+        hljs: window.hljs,
+        languages: [
+          // Programming Languages
+          'python', 'javascript', 'typescript', 'jsx', 'tsx',
+          'java', 'kotlin', 'scala', 'groovy',
+          'c', 'cpp', 'csharp', 'objectivec',
+          'go', 'rust', 'swift', 'dart',
+          'php', 'ruby', 'perl', 'lua',
+          'r', 'scala', 'haskell', 'elixir',
+          
+          // Shell/Command Line
+          'bash', 'shell', 'sh', 'zsh', 'powershell', 'cmd',
+          
+          // Web Technologies
+          'html', 'xml', 'css', 'scss', 'sass', 'less', 'stylus',
+          'json', 'yaml', 'toml', 'graphql',
+          
+          // Config/Infrastructure
+          'dockerfile', 'nginx', 'apache', 'makefile', 'terraform',
+          
+          // Databases
+          'sql', 'plsql', 'mysql', 'postgresql', 'mongodb',
+          
+          // Markup/Text
+          'markdown', 'asciidoc', 'latex',
+          
+          // Special Formats
+          'diff', 'plaintext', 'log', 'csv',
+          
+          // Network/Protocols
+          'http', 'uri', 'dns',
+          
+          // Embedded/Assembly
+          'arduino', 'armasm', 'avrasm', 'x86asm',
+          
+          // Other
+          'vim', 'excel', 'ebnf', 'protobuf'
+        ]
       },
-      // pagination configuration
+      
+      count: {
+        countable: true,
+        fontsize: '0.9em',
+        color: 'rgb(90,90,90)',
+        language: 'chinese'
+      },
+      
       pagination: {
         previousText: 'PREVIOUS',
-        // or
-        // nextText: {
-        //   '/en/': 'NEXT',
-        //   '/': '下一章节'
-        // },
         nextText: 'NEXT',
         crossChapter: true,
         crossChapterText: true,
       },
-      // plugins configuration
+      
       plugins: [
         function (hook, vm) {
           hook.doneEach(function () {
-            // for "chart example"
-            if (location.hash.includes('/_ex_chart') || location.hash.includes('/How%20to%20use%20external-script.min.js%20in%20Docsify')) {
+            // Chart example
+            if (location.hash.includes('/_ex_chart') || 
+                location.hash.includes('/How%20to%20use%20external-script.min.js%20in%20Docsify')) {
               const canvas = document.getElementById('myChart');
               if (canvas) {
                 const ctx = canvas.getContext('2d');
@@ -84,7 +161,9 @@
                   }
                 });
               }
-            } else if (location.hash.includes('/_ex_math')) {
+            } 
+            // Math example
+            else if (location.hash.includes('/_ex_math')) {
               if (typeof renderMathInElement === 'function') {
                 renderMathInElement(document.body, {
                   delimiters: [
@@ -94,26 +173,30 @@
                 });
               }
             }
+            
+            // Force dark background for all code blocks
+            document.querySelectorAll('pre code').forEach(el => {
+              el.style.backgroundColor = '#1a1a1a';
+            });
           });
         }
       ],
-      // search
+      
       search: 'auto',
-      // tabs
       tabs: {
-        persist: true, // default
-        sync: true, // default
-        theme: 'material', // classic, material, false
-        tabComments: true, // default
-        tabHeadings: true // default
+        persist: true,
+        sync: true,
+        theme: 'material',
+        tabComments: true,
+        tabHeadings: true
       },
       themeable: {
         readyTransition: true,
         responsiveTables: true
       }
-    }
+    };
 
-    
+    // Theme switching functionality
     function setTheme(mode) {
       const themeMap = {
         theme_simple: `https://cdn.jsdelivr.net/npm/docsify-themeable@0/dist/css/theme-simple.css`,
@@ -130,30 +213,104 @@
 
     document.getElementById('theme-select').addEventListener('change', (e) => {
       setTheme(e.target.value);
-    })
+    });
 
     document.addEventListener('DOMContentLoaded', () => {
       const saved = localStorage.getItem('theme-style') || 'bubble';
       setTheme(saved);
-    })
+    });
   </script>
- 
- 
-  <!-- Docsify v4 -->
+
+  <!-- highlight.js Core + Languages -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <!-- Programming Languages -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/python.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/javascript.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/typescript.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/java.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/cpp.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/csharp.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/go.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/rust.min.js"></script>
+
+  <!-- Shell/Command Line -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/bash.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/shell.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/powershell.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/dos.min.js"></script> <!-- cmd -->
+
+  <!-- Web Technologies -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/html.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/css.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/scss.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/json.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/yaml.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/xml.min.js"></script>
+
+  <!-- Databases -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/sql.min.js"></script>
+
+  <!-- Config/Infrastructure -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/dockerfile.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/nginx.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/makefile.min.js"></script>
+
+  <!-- Markup/Text -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/markdown.min.js"></script>
+
+  <!-- Special Formats -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/diff.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/plaintext.min.js"></script>
+
+  <!-- Autoloader for remaining languages -->
+  <script>
+    // Configure autoloader for other languages not explicitly loaded above
+    hljs.configure({
+      languages: [
+        'typescript', 'jsx', 'tsx', 'kotlin', 'scala', 'groovy', 
+        'objectivec', 'swift', 'dart', 'php', 'ruby', 'perl', 'lua',
+        'r', 'haskell', 'elixir', 'zsh', 'sass', 'less', 'stylus',
+        'toml', 'graphql', 'apache', 'terraform', 'plsql', 'mysql',
+        'postgresql', 'mongodb', 'asciidoc', 'latex', 'log', 'csv',
+        'http', 'uri', 'dns', 'arduino', 'armasm', 'avrasm', 'x86asm',
+        'vim', 'excel', 'ebnf', 'protobuf'
+      ],
+      useBR: false
+    });
+  </script>
+  
+  <script>
+    // Initialize highlight.js and ensure dark background
+    document.addEventListener('DOMContentLoaded', () => {
+      // Register all languages
+      hljs.configure({
+        cssSelector: 'pre code',
+        ignoreUnescapedHTML: true
+      });
+      
+      // Highlight all code blocks
+      document.querySelectorAll('pre code').forEach(el => {
+        hljs.highlightElement(el);
+        el.style.backgroundColor = '#1a1a1a';
+      });
+    });
+  </script>
+
+  <!-- Docsify and Plugins -->
   <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
   <script src="//unpkg.com/docsify/lib/plugins/external-script.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <!-- KaTeX Scripts -->
-  <script src="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/katex/dist/contrib/auto-render.min.js"></script>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
   
   <!-- MathJax Configuration -->
   <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
       tex2jax: {
-        inlineMath: [ ['[',']'] ],  // Use square brackets for inline math
-        displayMath: [ ['$$','$$'] ],  // Use $$ for display math
+        <!-- inlineMath: [ ['[',']'] ], -->
+        inlineMath: [ 
+          ['\\(', '\\)'],  // Traditional LaTeX style
+          ['[', ']']       // Alternative bracket style
+        ],
+        displayMath: [ ['$$','$$'] ],
         processEscapes: true,
         ignoreClass: ".*|",
         processClass: "math|"
@@ -163,21 +320,7 @@
     });
   </script>
 
-  <!-- Gitalk Configuration -->
-  <!-- <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/gitalk.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.js"></script>
-  <script>
-    const gitalk = new Gitalk({
-      clientID: 'Github Application Client ID',
-      clientSecret: 'Github Application Client Secret',
-      repo: 'Github repo',
-      owner: 'Github repo owner',
-      admin: ['Github repo collaborators, only these guys can initialize github issues'],
-      // facebook-like distraction free mode
-      distractionFreeMode: false
-    })
-  </script> -->
-
+  <!-- Additional Plugins -->
   <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/emoji.min.js"></script>
   <script src="//unpkg.com/docsify-count/dist/countable.js"></script>
   <script src="//unpkg.com/docsify-pagination/dist/docsify-pagination.min.js"></script>
@@ -191,9 +334,16 @@
     window.$docsify = window.$docsify || {};
     window.$docsify.plugins = (window.$docsify.plugins || []).concat(function(hook, vm) {
       hook.doneEach(function() {
+        // MathJax typesetting
         if (window.MathJax) {
           MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
         }
+        
+        // Re-highlight and enforce dark background on navigation
+        document.querySelectorAll('pre code').forEach(el => {
+          hljs.highlightElement(el);
+          el.style.backgroundColor = '#1a1a1a';
+        });
       });
     });
   </script>
