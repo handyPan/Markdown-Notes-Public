@@ -3,7 +3,7 @@
 
 <!-- tabs:start -->
 
-#### **All (29)**
+#### **All (31)**
 
 <div style="
   display: flex;
@@ -40,6 +40,21 @@
     transition: all 0.3s;  
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 ">Algorithm</a>
+<a href="https://markdown-notes-hpkg.onrender.com/#/topics/Angular/" style="
+    display: inline-flex;       
+    align-items: center;       
+    justify-content: center;   
+    background: #eee;
+    font-size: 16px;
+    text-decoration: none;
+    text-align: center;
+    border-radius: 0;
+    width: 100px;
+    height: 100px;
+    padding: 0;                
+    transition: all 0.3s;  
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+">Angular</a>
 <a href="https://markdown-notes-hpkg.onrender.com/#/topics/Backend/" style="
     display: inline-flex;       
     align-items: center;       
@@ -85,6 +100,21 @@
     transition: all 0.3s;  
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 ">Database</a>
+<a href="https://markdown-notes-hpkg.onrender.com/#/topics/Design Pattern/" style="
+    display: inline-flex;       
+    align-items: center;       
+    justify-content: center;   
+    background: #eee;
+    font-size: 16px;
+    text-decoration: none;
+    text-align: center;
+    border-radius: 0;
+    width: 100px;
+    height: 100px;
+    padding: 0;                
+    transition: all 0.3s;  
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+">Design Pattern</a>
 <a href="https://markdown-notes-hpkg.onrender.com/#/topics/Docsify/" style="
     display: inline-flex;       
     align-items: center;       
@@ -447,7 +477,7 @@
 ">WSL</a>
 </div>
 
-#### **A (2)**
+#### **A (3)**
 
 <div style="
   display: flex;
@@ -484,6 +514,21 @@
     transition: all 0.3s;  
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 ">Algorithm</a>
+<a href="https://markdown-notes-hpkg.onrender.com/#/topics/Angular/" style="
+    display: inline-flex;       
+    align-items: center;       
+    justify-content: center;   
+    background: #eee;
+    font-size: 16px;
+    text-decoration: none;
+    text-align: center;
+    border-radius: 0;
+    width: 100px;
+    height: 100px;
+    padding: 0;                
+    transition: all 0.3s;  
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+">Angular</a>
 </div>
 
 #### **B (1)**
@@ -534,7 +579,7 @@
 ">CSS</a>
 </div>
 
-#### **D (2)**
+#### **D (3)**
 
 <div style="
   display: flex;
@@ -556,6 +601,21 @@
     transition: all 0.3s;  
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 ">Database</a>
+<a href="https://markdown-notes-hpkg.onrender.com/#/topics/Design Pattern/" style="
+    display: inline-flex;       
+    align-items: center;       
+    justify-content: center;   
+    background: #eee;
+    font-size: 16px;
+    text-decoration: none;
+    text-align: center;
+    border-radius: 0;
+    width: 100px;
+    height: 100px;
+    padding: 0;                
+    transition: all 0.3s;  
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+">Design Pattern</a>
 <a href="https://markdown-notes-hpkg.onrender.com/#/topics/Docsify/" style="
     display: inline-flex;       
     align-items: center;       

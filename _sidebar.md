@@ -4,9 +4,11 @@
 
 * [AI](/topics/AI/)
 * [Algorithm](/topics/Algorithm/)
+* [Angular](/topics/Angular/)
 * [Backend](/topics/Backend/)
 * [CSS](/topics/CSS/)
 * [Database](/topics/Database/)
+* [Design Pattern](/topics/Design%20Pattern/)
 * [Docsify](/topics/Docsify/)
 * [Emoji](/topics/Emoji/)
 * [Git](/topics/Git/)
