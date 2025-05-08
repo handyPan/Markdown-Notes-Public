@@ -12,6 +12,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/base16/material-darker.min.css">
   
   <style>
+    /* Hide Pagination container if there is no other files */
     .docsify-pagination-container:not(:has(a)) {
       display: none;
     }
@@ -56,6 +57,101 @@
       background: #555;
       border-radius: 4px;
     }
+
+    /* README. md */
+    .readme-tile {
+      display: inline-flex;
+      position: relative; /* Required for absolute positioning of child elements */       
+      align-items: center;       
+      justify-content: center;   
+      background: #eee;
+      font-size: 16px;
+      text-decoration: none;
+      text-align: center;
+      border-radius: 0;
+      width: 100px;
+      height: 100px;
+      padding: 0;                
+      transition: all 0.3s;  
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    .readme-tile-badge {
+      position: absolute;
+      top: 0;
+      right: 0;
+      transform: translate(15%, -25%);
+      padding: 0.25em 0.35em;
+      border-radius: 3px;
+      background: rgb(255, 0, 0);
+      color: white;
+      font-family: sans-serif;
+      font-size: 11px;
+      font-weight: bold;
+    }
+
+    .sidebar-list-item {
+      position: relative;
+      margin-left: 10px;
+      display: inline-flex;       /* Makes the `<a>` a flex container */
+      align-items: center;       /* Vertically centers children (text + badge) */
+      color: #404d6b;
+      text-decoration: none;    /* Removes underline (optional) */
+      */
+    }
+
+    .sidebar-list-item-badge {
+      position: absolute;
+      top: 0;
+      right: 0;
+      transform: translate(0%, 25%);
+      padding: 0px 5px;
+      margin-right: 5px;
+      border-radius: 3px;
+      background: rgb(255, 0, 0);
+      color: white;
+      font-family: sans-serif;
+      font-size: 11px;
+      max-height: 20px;
+      font-weight: bold;
+      display: inline-flex;      /* Makes the `<span>` a flex container */
+      align-items: center;      /* Vertically centers "22 New!" inside the span */
+      justify-content: center;  /* Horizontally centers "22 New!" (optional) */
+    }
+
+    /* index.html */
+    footer {
+      position: fixed;  /* or 'absolute' depending on your layout needs */
+      bottom: 0;
+      left: 0;
+      right: 0;
+      text-align: center;
+      padding: 10px 0;  /* optional padding */
+      background-color: white;  /* optional background */
+      border-top: 1px solid #eee;  /* optional border */
+    }
+
+    footer span {
+      margin: 0 10px;  /* space between spans */
+    }
+
+    /* math formula */
+    .math-block {
+      background: none !important;
+      color: #34495e;
+      padding: 0.5em;
+      font-size: 1.1em;
+    }
+
+    .math-block pre,
+    .math-block pre code {
+      all: unset !important; /* override previous styles */
+    }
+
+    .math-block pre::before {
+      padding: 0 12px;
+    }
+
   </style>
 </head>
 <body>
@@ -344,6 +440,22 @@
           hljs.highlightElement(el);
           el.style.backgroundColor = '#1a1a1a';
         });
+      });
+    });
+  </script>
+
+  <!-- page footer -->
+  <script>
+    window.$docsify = window.$docsify || {};
+    window.$docsify.plugins = (window.$docsify.plugins || []).concat(function pageFooter(hook, vm) {
+      var footer = [
+        '<footer>',
+        '<span><a href="https://github.com/handyPan">Handy Pan</a> &copy;2025.</span>',
+        '</footer>',
+      ].join('');
+
+      hook.afterEach(function (html) {
+        return html + footer;
       });
     });
   </script>
