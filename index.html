@@ -312,7 +312,7 @@
     }
 
     .docsify-tabs__content {
-      padding: 12px!important;
+      padding-left: 12px!important;
     }
 
   </style>
@@ -830,6 +830,9 @@
     // Remove leading "#" if present
     path = path.replace(/^#/, '');
 
+    // Fallback to root if empty
+    if (!path || path === '/') return '/';
+
     // Ensure it starts with "/"
     if (!path.startsWith('/')) {
       path = '/' + path;
@@ -889,8 +892,6 @@
   // Append your plugin instead of replacing the array
   window.$docsify.plugins = (window.$docsify.plugins || []).concat(myPlugin);
 </script>
-
-
 
 </body>
 </html>
