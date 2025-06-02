@@ -97,7 +97,6 @@
       align-items: center;       /* Vertically centers children (text + badge) */
       color: #404d6b;
       text-decoration: none;    /* Removes underline (optional) */
-      */
     }
 
     .sidebar-list-item-badge {
@@ -120,6 +119,10 @@
     }
 
     /* index.html */
+    html {
+      scroll-behavior: smooth;
+    }
+
     footer {
       position: fixed;  /* or 'absolute' depending on your layout needs */
       bottom: 0;
@@ -152,6 +155,166 @@
       padding: 0 12px;
     }
 
+    .hljs-comment {
+      color: #c0c0c0;
+    }
+
+    /* toc */
+    /*
+    #toc {
+      padding: 1em;
+    }
+
+    #toc a {
+      text-decoration: none;         
+      color: #344951;                
+      font-family: sans-serif;
+      margin-bottom: 4px;
+    }
+
+    #toc a:hover {
+      text-decoration: underline;    
+      background: #c0c0c0; 
+    }
+    */
+
+    #toc {
+      position: fixed;
+      right: 10px;
+      top: 90px;
+
+      width: 25vw;          /* Responsive width based on viewport width */
+      min-width: 150px;
+      max-width: 250px;
+
+      max-height: 85vh;      /* Allow vertical space up to 80% of screen */
+      overflow-y: auto;      /* Enable scrolling when content overflows */
+
+      padding-right: 8px;    /* Prevent scrollbar from hiding text */
+      background-color: white;  /* Optional: for visibility */
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);  /* Optional: visual polish */
+    }
+
+    /* Common TOC link styles */
+    #toc a {
+      display: block;
+      text-decoration: none;
+      padding: 4px 8px;
+      margin: 2px 0;
+      color: #333;
+      border-left: 3px solid transparent;
+      transition: background-color 0.2s, border-color 0.2s;
+    }
+
+    /* Hover effect */
+    #toc a:hover {
+      background-color: #f0f0f0;
+      border-left-width: 6px;
+      /* border-left-color: #007bff; */
+    }
+
+    /* Hierarchical styles */
+    #toc .toc-1 {
+      /* font-size: 16px;
+      padding-left: 8px; */
+      border-left-color: #3b82f6;
+    }
+
+    #toc .toc-2 {
+      /* font-size: 14px;
+      padding-left: 16px; */
+      border-left-color: #34d399;
+    }
+
+    #toc .toc-3 {
+      /* font-size: 12px;
+      padding-left: 24px; */
+      border-left-color: #6366f1;
+    }
+
+    #toc .toc-4 {
+      /* font-size: 10px;
+      padding-left: 32px; */
+      border-left-color: #ec4899;
+    }
+
+    #toc .toc-5 {
+      /* font-size: 8px;
+      padding-left: 40px; */
+      border-left-color: #f87171;
+    }
+
+    #toc .toc-6 {
+      /* font-size: 6px;
+      padding-left: 48px; */
+      border-left-color: #9ca3af;
+    }
+
+    /* .md content */
+    #main {
+      margin-left: 40px;
+      margin-right: 0px;
+    }
+
+    .content {
+      padding-top: 0px;
+    }
+
+    /* pdf list and viewer */
+    .pdf-container {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .pdf-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2px;
+      width: 100%;
+      align-items: flex-start;
+    }
+
+    .pdf-list span {
+      display: inline-block;     /* Or keep it block if needed */
+      margin: 0;                 /* Remove default margin */
+      padding: 0;                /* Remove default padding */
+      line-height: 1;            /* Reduce line spacing */
+      vertical-align: top;       /* Prevent alignment gaps */
+    }
+
+    .pdf-viewer {
+      flex-grow: 1;
+    }
+
+    .pdf-viewer iframe {
+      margin-top: 0;
+      width: 100%;
+      height: 600px;
+      border: none;
+    }
+
+    .pdf-link {
+      display: block;
+      margin-bottom: 0px;
+      cursor: pointer;
+      color: #3b82f6;
+      text-decoration: underline;
+    }
+
+    span.pdf-link {
+      margin-bottom: 0px;
+      height: 15px; /* Set your fixed height */
+      display: flex;
+      align-items: center; /* Vertically centers the text */
+      padding: 0 0px; /* Optional: add horizontal padding */
+      box-sizing: border-box; /* Ensure padding doesn't affect height */
+    }
+
+    .docsify-tabs__content {
+      padding: 12px!important;
+    }
+
   </style>
 </head>
 <body>
@@ -163,11 +326,14 @@
       <option value="theme_simple">🌞 Theme Simple</option>
       <option value="theme_dark">🌙 Theme Dark</option>
       <option value="vue">💚 Vue</option>
-      <option value="bubble">🔵 Bubble</option>
+      <option value="buble">🔵 Buble</option>
       <option value="dark">🖤 Dark</option>
       <option value="pure">⚪ Pure</option>
     </select>
   </div>
+
+  <!-- Your ToC container (optional placement) -->
+  <div id="toc"></div>
 
   <script>
     window.$docsify = {
@@ -293,28 +459,98 @@
     };
 
     // Theme switching functionality
+    // updated below for the embedded htmls
     function setTheme(mode) {
       const themeMap = {
         theme_simple: `https://cdn.jsdelivr.net/npm/docsify-themeable@0/dist/css/theme-simple.css`,
         theme_dark: `https://cdn.jsdelivr.net/npm/docsify-themeable@0/dist/css/theme-simple-dark.css`,
         vue: 'https://cdn.jsdelivr.net/npm/docsify/lib/themes/vue.css',
-        bubble: 'https://cdn.jsdelivr.net/npm/docsify/lib/themes/buble.css',
+        buble: 'https://cdn.jsdelivr.net/npm/docsify/lib/themes/buble.css',
         dark: 'https://cdn.jsdelivr.net/npm/docsify/lib/themes/dark.css',
         pure: 'https://cdn.jsdelivr.net/npm/docsify/lib/themes/pure.css'
       };
-      document.getElementById('theme-style').href = `${themeMap[mode]}` || themeMap.bubble;
+      document.getElementById('theme-style').href = `${themeMap[mode]}` || themeMap.buble;
       document.getElementById('theme-select').value = mode;
       localStorage.setItem('theme-style', mode);
     }
+    /*
+   function setTheme(mode) {
+      const themeMap = {
+        theme_simple: `https://cdn.jsdelivr.net/npm/docsify-themeable@0/dist/css/theme-simple.css`,
+        theme_dark: `https://cdn.jsdelivr.net/npm/docsify-themeable@0/dist/css/theme-simple-dark.css`,
+        vue: 'https://cdn.jsdelivr.net/npm/docsify/lib/themes/vue.css',
+        buble: 'https://cdn.jsdelivr.net/npm/docsify/lib/themes/buble.css',
+        dark: 'https://cdn.jsdelivr.net/npm/docsify/lib/themes/dark.css',
+        pure: 'https://cdn.jsdelivr.net/npm/docsify/lib/themes/pure.css'
+      };
+
+      const themeUrl = themeMap[mode] || themeMap.buble;
+
+      // Update parent document
+      document.getElementById('theme-style').href = themeUrl;
+      document.getElementById('theme-select').value = mode;
+      localStorage.setItem('theme-style', mode);
+
+      // Loop through all iframes and apply the theme
+      const iframes = document.querySelectorAll('iframe');
+      console.log(iframes);
+      iframes.forEach((iframe) => {
+        try {
+          const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
+          let link = iframeDoc.getElementById('theme-style');
+
+          if (!link) {
+            link = iframeDoc.createElement('link');
+            link.rel = 'stylesheet';
+            link.id = 'theme-style';
+            iframeDoc.head.appendChild(link);
+            console.log(link);
+          }
+
+          // link.href = themeUrl;
+          // link.href = themeUrl + '?v=' + Date.now();
+          // console.log(link.href);
+
+          const newLink = link.cloneNode();
+          newLink.href = themeUrl + '?v=' + Date.now();
+          link.parentNode.replaceChild(newLink, link);
+
+        } catch (err) {
+          // Cross-origin iframe - you can use postMessage here if you control the embedded pages
+          iframe.contentWindow.postMessage({ type: 'set-theme', url: themeUrl }, '*');
+        }
+      });
+    }
+    */
 
     document.getElementById('theme-select').addEventListener('change', (e) => {
       setTheme(e.target.value);
     });
 
+    
+    // updated below for the embedded htmls
     document.addEventListener('DOMContentLoaded', () => {
-      const saved = localStorage.getItem('theme-style') || 'bubble';
+      const saved = localStorage.getItem('theme-style') || 'buble';
       setTheme(saved);
     });
+    
+   /*
+   document.addEventListener('DOMContentLoaded', () => {
+      const saved = localStorage.getItem('theme-style') || 'buble';
+
+      // Apply theme to parent
+      setTheme(saved);
+
+      // Apply theme to iframes after they have loaded
+      const iframes = document.querySelectorAll('iframe');
+      iframes.forEach((iframe) => {
+        iframe.addEventListener('load', () => {
+          setTheme(saved);
+        });
+      });
+    });
+    */
+
   </script>
 
   <!-- highlight.js Core + Languages -->
@@ -404,7 +640,8 @@
         <!-- inlineMath: [ ['[',']'] ], -->
         inlineMath: [ 
           ['\\(', '\\)'],  // Traditional LaTeX style
-          ['[', ']']       // Alternative bracket style
+          ['[', ']'],       // Alternative bracket style
+          ['$', '$']
         ],
         displayMath: [ ['$$','$$'] ],
         processEscapes: true,
@@ -420,11 +657,14 @@
   <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/emoji.min.js"></script>
   <script src="//unpkg.com/docsify-count/dist/countable.js"></script>
   <script src="//unpkg.com/docsify-pagination/dist/docsify-pagination.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-AMS_CHTML"></script>
   <script src="//cdn.jsdelivr.net/npm/docsify-copy-code/dist/docsify-copy-code.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/zoom-image.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/docsify-tabs@1"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-AMS_CHTML"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
   
   <script>
     window.$docsify = window.$docsify || {};
@@ -450,7 +690,7 @@
     window.$docsify.plugins = (window.$docsify.plugins || []).concat(function pageFooter(hook, vm) {
       var footer = [
         '<footer>',
-        '<span><a href="https://github.com/handyPan">Handy Pan</a> &copy;2025.</span>',
+        '<span><a href="https://github.com/handyPan">Handy Pan</a> &copy;2025.Powered by <a href="https://docsify.js.org/#/" target="_blank">docsify</a>.</span>',
         '</footer>',
       ].join('');
 
@@ -459,5 +699,198 @@
       });
     });
   </script>
+
+  <!-- PDF Export -->
+  <script>
+    function exportPDF() {
+      const { jsPDF } = window.jspdf;
+      const pdf = new jsPDF('p', 'pt', 'a4');
+      const content = document.getElementById("content");
+  
+      // Use MathJax v2 callback to wait until typesetting is done
+      MathJax.Hub.Queue(["Typeset", MathJax.Hub, content]);
+      MathJax.Hub.Queue(function () {
+        // 2 and above makes the PDF heavy
+        html2canvas(content, { scale: 1 }).then(canvas => {
+          const imgData = canvas.toDataURL('image/png');
+          const imgProps = pdf.getImageProperties(imgData);
+          const marginX = 10;
+          const pdfWidth = pdf.internal.pageSize.getWidth() - 2 * marginX;
+          const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
+          pdf.addImage(imgData, 'PNG', marginX, 0, pdfWidth, pdfHeight);
+          pdf.save("export.pdf");
+        });
+      });
+    }
+  </script>
+
+  <!-- Generate TOC -->
+   <!-- Your ToC generator script -->
+  <script>
+    function generateToC(containerId = "content", tocId = "toc") {
+
+      const currentHash = decodeURIComponent(location.hash);
+      // console.log(currentHash);
+      const pattern = /^#\/topics\/[A-Za-z0-9 _-]+\/$/;
+      if (currentHash == "#/" || currentHash == "#/?id=main" || pattern.test(currentHash)) {
+        document.getElementById(tocId).innerHTML = ""; // Clear ToC if not needed
+        return;
+      }
+
+      const content = document.querySelector(".content"); // Docsify renders to .content
+      const toc = document.getElementById(tocId);
+      if (!content || !toc) return;
+      toc.innerHTML = "<h2>Table of Contents</h2>";
+
+      const headers = content.querySelectorAll("h1, h2, h3, h4, h5, h6");
+      headers.forEach((header, i) => {
+        // console.log(header);
+        // const anchor = `toc-${i}`;
+        const anchor = header.id;
+        header.id = anchor;
+
+        const link = document.createElement("a");
+        const url = window.location.href;
+        const baseUrl = url.includes("?") ? url.split("?")[0] : url;
+        link.href = baseUrl + `?id=${anchor}`;
+        // console.log(link.href);
+        link.textContent = (header.textContent.length > 25) ? header.textContent.slice(0, 25) + " ...":header.textContent;
+        // link.style.marginLeft = `${(parseInt(header.tagName[1]) - 1) * 20}px`;
+        link.classList.add((header.localName == 'h1') ? "toc-1": (
+                                (header.localName == 'h2') ? "toc-2" : (
+                                  (header.localName == 'h3') ? "toc-3" : (
+                                    (header.localName == 'h4') ? "toc-4" : (
+                                      (header.localName == 'h5') ? "toc-5" : "toc-6"
+        )))));
+        // link.style.marginLeft = (header.localName == 'h1') ? "0px": (
+        //                         (header.localName == 'h2') ? "4px" : (
+        //                           (header.localName == 'h3') ? "8px" : (
+        //                             (header.localName == 'h4') ? "12px" : (
+        //                               (header.localName == 'h5') ? "16px" : "20px"
+        // ))));
+        link.style.fontSize = (header.localName == 'h1') ? "16px": (
+                                (header.localName == 'h2') ? "14px" : (
+                                  (header.localName == 'h3') ? "12px" : (
+                                    (header.localName == 'h4') ? "10px" : (
+                                      (header.localName == 'h5') ? "8px" : "6px"
+        ))));
+        link.style.display = "block";
+
+        toc.appendChild(link);
+      });
+    }
+
+    window.addEventListener("hashchange", () => setTimeout(generateToC, 300));
+    window.addEventListener("load", () => setTimeout(generateToC, 300));
+  </script>
+
+  <!-- PDF List and Viewer  -->
+  <script>
+    window.$docsify = window.$docsify || {};
+    window.$docsify.plugins = (window.$docsify.plugins || []).concat(function(hook, vm) {
+      hook.doneEach(function() {
+        // PDF link click handlers
+        const links = document.querySelectorAll('.pdf-link');
+        const frame = document.getElementById('pdfFrame');
+        if (!frame) return;
+
+        links.forEach(link => {
+          link.addEventListener('click', () => {
+            const pdfUrl = link.getAttribute('data-pdf');
+            frame.src = pdfUrl;
+            // console.log("PDF address updated to:", pdfUrl);
+          });
+        });
+      });
+    });
+  </script>
+
+  <!-- to fully show the iframe content without scroll bar  -->
+  <script>
+    function resizeIframe(iframe) {
+      iframe.style.height = iframe.contentWindow.document.body.scrollHeight + 'px';
+    }
+  </script>
+
+  <script>
+    // Configure marked to allow raw HTML, used for the "Overview" and "List"
+  if (window.marked) {
+    window.marked.setOptions({
+      gfm: true,          // GitHub-flavored markdown
+      breaks: true,       // Convert line breaks into <br>
+      sanitize: false     // Allow raw HTML (important!)
+    });
+  }
+  </script>
+  
+  <script>
+    function getDocsifyPagePath() {
+    let path = window.location.hash || window.location.pathname;
+
+    // Remove leading "#" if present
+    path = path.replace(/^#/, '');
+
+    // Ensure it starts with "/"
+    if (!path.startsWith('/')) {
+      path = '/' + path;
+    }
+
+    // Ensure it ends with "/"
+    if (!path.endsWith('/')) {
+      path += '/';
+    }
+
+    return decodeURIComponent(path); // Decode any %20 etc.
+  }
+
+  function computeMdPath(mdFileName) {
+    return getDocsifyPagePath() + mdFileName;
+  }
+  
+  function loadExtraSection(file, containerSelector) {
+    fetch(file)
+      .then(res => res.text())
+      .then(md => {
+        const html = window.marked(md);
+        document.querySelector(containerSelector).innerHTML = html;
+      });
+  }
+
+  window.$docsify = window.$docsify || {};
+  const myPlugin = function (hook, vm) {
+    hook.doneEach(function () {
+      const overviewBtn = document.querySelector('[data-tab="overview"]');
+      const listBtn = document.querySelector('[data-tab="list"]');
+
+      // If both buttons are missing, exit early
+      if (!overviewBtn && !listBtn) {
+        console.warn('Tab buttons not found — skipping extra section loading.');
+        return;
+      }
+
+      if (overviewBtn) {
+        overviewBtn.addEventListener('click', () => {
+          loadExtraSection(computeMdPath('_overview.md'), '#overview-container');
+        });
+      }
+
+      if (listBtn) {
+        listBtn.addEventListener('click', () => {
+          loadExtraSection(computeMdPath('_list.md'), '#list-container');
+        });
+      }
+      
+      // Automatically load overview and list sections when the page loads
+      loadExtraSection(computeMdPath('_overview.md'), '#overview-container');
+      loadExtraSection(computeMdPath('_list.md'), '#list-container');
+    });
+  };
+
+  // Append your plugin instead of replacing the array
+  window.$docsify.plugins = (window.$docsify.plugins || []).concat(myPlugin);
+</script>
+
+
+
 </body>
 </html>
